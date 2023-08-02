@@ -8,6 +8,7 @@ import SearchFillIcon from "./ui/icon/SearchFillIcon";
 import NewIcon from "./ui/icon/NewIcon";
 import NewFillIcon from "./ui/icon/NewFillIcon";
 import { usePathname } from "next/navigation";
+import ColorButton from "./ColorButton";
 
 const menu = [
   {
@@ -32,18 +33,19 @@ export default function Navbar() {
     <div>
       <Link href="/">
         <h1>Instantgram</h1>
-        <nav>
-          <ul>
-            {menu.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href}>
-                  {pathName === item.href ? item.clickedIcon : item.icon}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
       </Link>
+      <nav>
+        <ul>
+          {menu.map((item) => (
+            <li key={item.href}>
+              <Link href={item.href}>
+                {pathName === item.href ? item.clickedIcon : item.icon}
+              </Link>
+            </li>
+          ))}
+          <ColorButton text="Sign in" onClick={() => {}} />
+        </ul>
+      </nav>
     </div>
   );
 }
