@@ -30,12 +30,12 @@ const menu = [
 export default function Navbar() {
   const pathName = usePathname();
   return (
-    <div>
+    <div className="flex justify-between items-center px-6">
       <Link href="/">
-        <h1>Instantgram</h1>
+        <h1 className="text-3xl font-bold">Instantgram</h1>
       </Link>
       <nav>
-        <ul>
+        <ul className="flex gap-4 items-center p-4">
           {menu.map((item) => (
             <li key={item.href}>
               <Link href={item.href}>
