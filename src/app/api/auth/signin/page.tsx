@@ -4,7 +4,15 @@ import { redirect } from "next/navigation";
 import { getProviders } from "next-auth/react";
 import SignIn from "@/components/SignIn";
 
-export default async function SignPage() {
+type Props = {
+  searchParams: {
+    callbackUrl: string;
+  };
+};
+
+export default async function SignPage({
+  searchParams: { callbackUrl },
+}: Props) {
   const session = await getServerSession(authOptions);
 
   if (session) {
@@ -13,5 +21,9 @@ export default async function SignPage() {
 
   const providers = (await getProviders()) ?? {};
 
-  return <SignIn providers={providers} />;
+  return (
+    <section className="flex justify-center mt-[30%]">
+      <SignIn providers={providers} callbackUrl={callbackUrl ?? "/"} />
+    </section>
+  );
 }
