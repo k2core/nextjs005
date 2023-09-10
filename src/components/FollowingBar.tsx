@@ -22,6 +22,7 @@ export default function FollowingBar() {
             <li key={username}>
               <Link href={`/user/${username}`}>
                 <Avatar image={image} highlight />
+                <p>{username}</p>
               </Link>
             </li>
           ))}
